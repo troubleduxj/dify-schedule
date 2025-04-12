@@ -2,8 +2,9 @@ name: Auto
 
 on:
   schedule:
-    - cron: "30 22 * * *" # 北京时间上午06:30
-  workflow_dispatch:
+    # 每周一至周五北京时间8:30（UTC时间0:30）
+    - cron: "30 0 * * 1-5"  # 1-5表示周一到周五
+  workflow_dispatch:  # 保留手动触发选项
 
 env:
   DIFY_TOKENS: ${{ secrets.DIFY_TOKENS }}
